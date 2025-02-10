@@ -1,0 +1,113 @@
+:root {
+    --primary-color: #6a5acd;
+    --secondary-color: #bdb0e0;
+    --background-color: #fff;
+    --border-color: #bdb0e0;
+    --text-color: #333;
+    --text-white-color: #fff;
+    --button-bg: #6a5acd;
+    --button-hover: #5a4dbf;
+}
+
+.body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    color: var(--text-color);
+}
+
+.nav {
+    display: flex;
+    gap: 2px;
+    padding: 20px 0;
+}
+
+.logo {
+    color: var(--text-white-color);
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.form-container {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background-color: var(--background-color);
+}
+
+.mt-20 {
+    margin-left: 20px;
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--button-bg);
+    color: var(--text-white-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-button {
+    padding: 9px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.nav .btn:hover {
+    color: var(--primary-color);
+    background-color: var(--background-color);
+}
+
+.update-profile-button,
+.change-password-button {
+    margin-top: 20px;
+}
+
+.password-container {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    padding: 7px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    color: var(--button-hover);
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 30px;
+        width: 90%;
+    }
+}
