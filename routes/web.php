@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Web\NotificationController;
 use App\Http\Controllers\Web\AuthController;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\InvoiceController;
 use App\Http\Controllers\Web\OrderController;
 
 Route::get('/', [HomeController::class, 'redirectToHome']);
@@ -25,4 +27,12 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/order', [OrderController::class, 'index'])->name('order');
+Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice');
 Route::get('/ship-order/{id}', [OrderController::class, 'shipOrder'])->name('send.order.email');
+
+Route::get('/send-invoice-notification/{userId}/{invoiceId}', [InvoiceController::class, 'sendInvoiceNotification'])
+    ->name('send-invoice-notification');
+
+Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+Route::get('/notifications/read/{id}', [NotificationController::class, 'markAsRead'])->name('notifications.read');
+Route::get('/notifications/read-all', [NotificationController::class, 'markAllAsRead'])->name('notifications.readAll');

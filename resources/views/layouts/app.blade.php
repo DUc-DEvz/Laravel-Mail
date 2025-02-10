@@ -22,10 +22,10 @@
                         <a href="{{ route('home') }}" class="btn btn-success btn-sm">Trang Chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="btn btn-success btn-sm">Hồ Sơ</a>
+                        <a href="{{ route('order') }}" class="btn btn-success btn-sm">Đơn Hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="btn btn-success btn-sm">Đơn Hàng</a>
+                        <a href="{{ route('invoice') }}" class="btn btn-success btn-sm">Hóa Đơn</a>
                     </li>
                     @guest
                         <li class="nav-item">
@@ -40,6 +40,16 @@
                                 @csrf
                                 <button type="submit" class="btn btn-danger logout-button"> Đăng Xuất</button>
                             </form>
+                        </li>
+                        <li class="nav-item position-relative">
+                            <a href="{{ route('notifications.index') }}" class="btn btn-success btn-sm"><i
+                                    class="fa fa-bell"></i></a>
+                            @if (isset($unreadCount) && $unreadCount > 0)
+                                <span style="position: absolute;top: -5px;right: -5px;"
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ $unreadCount }}
+                                </span>
+                            @endif
                         </li>
                     @endguest
                 </ul>

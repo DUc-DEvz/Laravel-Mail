@@ -13,7 +13,8 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        return view('home', compact('orders'));
+        $unreadCount = auth()->user()->notifications->count();
+        return view('order', compact('orders', 'unreadCount'));
     }
 
     public function shipOrder($orderId)
